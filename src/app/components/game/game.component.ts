@@ -8,5 +8,6 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './game.component.css'
 })
 export class GameComponent {
+  
 
 }
