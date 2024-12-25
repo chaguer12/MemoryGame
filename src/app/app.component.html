@@ -2,13 +2,15 @@
   <div id="game-card">
     <h1>Want to test your memory?</h1>
     <p>Enter your name and click the button to start the game!</p>
-    
-    <!-- Input for player's name -->
-    <input type="text"  id="player-name" placeholder="Enter your name" />
-    
-    
-    <!-- Start button -->
-    <button id="start-button">Start Game</button>
+
+<form (ngSubmit)="startGame()" >
+  <!-- Input for player's name -->
+  <input [(ngModel)]="userName" name="userName" type="text"  id="player-name" placeholder="Enter your name" aria-label="Enter your name to start the game"/>
+
+
+  <!-- Start button -->
+  <button type="submit" id="start-button">Start Game</button>
+</form>
     <!-- Rules -->
     <div id="rules">
       <h2>Rules:</h2>
