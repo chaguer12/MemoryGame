@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {Component} from '@angular/core';
+import {Router, RouterOutlet} from '@angular/router';
 import {FormsModule} from '@angular/forms';
+import {UserService} from './service/user.service';
+
 
 @Component({
   selector: 'app-root',
@@ -9,15 +11,21 @@ import {FormsModule} from '@angular/forms';
   standalone: true,
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent{
   userName: string  = '';
+
+  constructor(private UserService:UserService,private router:Router) {
+  }
+
   startGame():void {
     if(this.userName){
-      console.log(`starting game for ${this.userName}`)
-    }else{
-      console.log("please enter your username!")
+      this.UserService.setUserName(this.userName);
+      this.router.navigate(['/game']);
+    }else {
+      alert('Please enter your name!');
     }
   }
+
 
 
 }
